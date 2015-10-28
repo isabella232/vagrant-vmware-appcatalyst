@@ -36,9 +36,9 @@ module VagrantPlugins
 
           # First mount command uses vmhgfs FUSE which is the preferred mount
           # style.
-          mount_options = "-o allow_other,uid=#{mount_uid},gid=#{mount_gid}"
-          mount_options += ",#{options[:mount_options].join(",")}" if options[:mount_options]
-          mount_commands << "/usr/bin/vmhgfs-fuse #{mount_options} .host:/#{name} #{expanded_guest_path}"
+          #mount_options = "-o allow_other,uid=#{mount_uid},gid=#{mount_gid}"
+          #mount_options += ",#{options[:mount_options].join(",")}" if options[:mount_options]
+          #mount_commands << "/usr/bin/vmhgfs-fuse #{mount_options} .host:/#{name} #{expanded_guest_path}"
 
           # second mount command fallsback to the kernel vmhgfs module and uses
           # getent to get the group.
