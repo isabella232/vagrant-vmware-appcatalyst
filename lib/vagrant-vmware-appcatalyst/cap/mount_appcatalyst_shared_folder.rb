@@ -44,7 +44,7 @@ module VagrantPlugins
           # getent to get the group.
           mount_options = "-o uid=#{mount_uid},gid=#{mount_gid}"
           mount_options += ",#{options[:mount_options].join(",")}" if options[:mount_options]
-          mount_commands << "mount -t vmhgfs #{mount_options} .host:/#{name} #{expanded_guest_path}"
+          mount_commands << "mountpoint -q #{expanded_guest_path} || mount -t vmhgfs #{mount_options} .host:/#{name} #{expanded_guest_path}"
 
           # Second mount command uses the old style `id -g`
           mount_options = "-o uid=#{mount_uid},gid=#{mount_gid_old}"
